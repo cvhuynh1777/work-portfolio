@@ -43,8 +43,8 @@ export default function Contact() {
         <p className="section-heading justify-center">// Establish Contact</p>
         <h2 className="section-title">Get In Touch</h2>
         <p className="font-body text-white/45 text-base leading-relaxed mb-14 max-w-lg mx-auto">
-          Open to conversations about space mission operations, data engineering roles,
-          ML research, or just building cool things. Let&apos;s connect.
+          Open to conversations about data engineering roles
+          or just building cool things. Let&apos;s connect.
         </p>
 
         {/* Contact cards */}

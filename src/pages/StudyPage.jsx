@@ -245,20 +245,18 @@ export default function StudyPage() {
           <div className={`h-px bg-gradient-to-r from-transparent ${c.glow} to-transparent`} />
         </div>
 
-        {/* Schedule visual — renders if study has schedule data */}
-        {study.schedule && (
-          <div className="mb-14">
-            <h2 className={`font-mono text-[11px] tracking-widest uppercase ${c.heading} mb-2`}>
-              00 / Conference Schedule
-            </h2>
-            <p className="font-body text-white/35 text-xs mb-4">Starred sessions are covered in this article. Click a day tab to explore.</p>
-            <ScheduleVisual schedule={study.schedule} accentHL={c.scheduleHL} />
-            <div className={`h-px bg-gradient-to-r from-transparent ${c.glow} to-transparent mt-10`} />
+        {/* Intro */}
+        {study.desc && (
+          <div className="mb-12">
+            <p className="font-body text-white/50 text-base leading-relaxed max-w-2xl">
+              {study.desc}
+            </p>
+            <div className={`h-px bg-gradient-to-r from-transparent ${c.glow} to-transparent mt-8`} />
           </div>
         )}
 
         {/* Two-col: article + sidebar */}
-        <div className="grid lg:grid-cols-[1fr_260px] gap-12 items-start">
+        <div className={study.preview ? "grid lg:grid-cols-[1fr_260px] gap-12 items-start" : ""}>
 
           <article className="min-w-0">
             {study.sections.length === 0 ? (
@@ -367,48 +365,6 @@ export default function StudyPage() {
               </div>
             )}
 
-            {/* Table of contents */}
-            {study.sections.length > 0 && (
-              <div className="card-glass border border-white/8 rounded-xl p-5">
-                <p className="font-mono text-[8px] tracking-widest uppercase text-white/25 mb-4">Contents</p>
-                <nav className="space-y-0.5">
-                  {study.schedule && (
-                    <button
-                      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                      className="block w-full text-left font-mono text-[10px] tracking-wide text-white/25 hover:text-white/55 transition-colors py-1.5 border-l border-white/8 hover:border-white/20 pl-3"
-                    >
-                      00 / Schedule
-                    </button>
-                  )}
-                  {study.sections.map((section) => (
-                    <button
-                      key={section.id}
-                      onClick={() => document.getElementById(section.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-                      className={`block w-full text-left font-mono text-[10px] tracking-wide transition-colors py-1.5 border-l hover:border-white/20 pl-3 ${
-                        section.placeholder
-                          ? 'text-white/20 border-white/5 hover:text-white/35'
-                          : 'text-white/35 border-white/8 hover:text-white/70'
-                      }`}
-                    >
-                      {section.heading.split('/')[0].trim()} / {section.heading.split('/').slice(1).join('/').trim().slice(0, 28)}
-                    </button>
-                  ))}
-                </nav>
-              </div>
-            )}
-
-            {/* Author */}
-            <div className="card-glass border border-white/8 rounded-xl p-5">
-              <p className="font-mono text-[8px] tracking-widest uppercase text-white/25 mb-3">Author</p>
-              <p className="font-space font-semibold text-white/80 text-sm mb-1">Christina Huynh</p>
-              <p className="font-body text-white/35 text-xs leading-relaxed">M.S. Computational Data Analytics · Georgia Tech<br />Data Engineer @ CACI</p>
-              <div className="flex gap-3 mt-4">
-                <a href="https://github.com/cvhuynh1777" target="_blank" rel="noopener noreferrer"
-                  className="font-mono text-[9px] tracking-widest uppercase text-white/25 hover:text-cyan-400 transition-colors">GitHub</a>
-                <a href="https://linkedin.com/in/chrisvh7" target="_blank" rel="noopener noreferrer"
-                  className="font-mono text-[9px] tracking-widest uppercase text-white/25 hover:text-cyan-400 transition-colors">LinkedIn</a>
-              </div>
-            </div>
           </aside>
         </div>
       </main>

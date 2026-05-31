@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "node node_modules/vite/dist/node/cli.js",
     "build": "node node_modules/vite/dist/node/cli.js build",
-    "preview": "node node_modules/vite/dist/node/cli.js preview"
+    "preview": "node node_modules/vite/dist/node/cli.js preview",
+    "predeploy": "node node_modules/vite/dist/node/cli.js build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "framer-motion": "^11.0.0",
@@ -17,6 +19,7 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.0",
     "autoprefixer": "^10.4.20",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13",
     "vite": "^6.0.0"

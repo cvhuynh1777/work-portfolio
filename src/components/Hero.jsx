@@ -5,7 +5,6 @@ const TYPEWRITER_STRINGS = [
   'Data Engineer',
   'Technical Lead',
   "Master's Student",
-  'Life-Long Learner',
 ]
 
 function useTypewriter(strings, speed = 80, pause = 1800) {
