@@ -4,11 +4,11 @@ const TIMELINE = [
     org: 'CACI',
     role: 'Data Engineer, Contract (Full-Time)',
     type: 'work',
-    color: 'cyan',
+    color: 'green',
     bullets: [
-      'Support in leading a team of engineers and analysts to develop scalable data pipelines through API development, ingesting and transforming environmental datasets for defense wargaming simulations across several warfare centers in different domains.',
+      'Support in leading a team of engineers and analysts to develop scalable data pipelines through API development, ingesting and transforming environmental datasets for simulations across several centers in different domains.',
       'Architect end-to-end data solutions, designing and producing system architecture diagrams briefed to technical and non-technical stakeholders.',
-      'Serve as primary interface between engineering teams and stakeholders, presenting technical roadmaps, system designs, and demonstrations of tool capabilities to program leadership, including briefings delivered at the Pentagon to admirals.',
+      'Serve as interface between engineering teams and stakeholders, presenting technical roadmaps, system designs, and demonstrations of tool capabilities to program leadership, including briefings delivered at the Pentagon to admirals.',
       'Lead data engineer on a classified defense initiative leveraging AI/ML and data pipeline development to accelerate operational response times in support of naval fleet readiness.',
       'Drive technical direction for ML-powered analytics workflows supporting forecasting, simulation, and operational decision-making across cross-functional teams.',
       'Mentor junior engineers, conduct code reviews, and coordinate sprint planning to deliver data infrastructure on schedule.',
@@ -20,7 +20,7 @@ const TIMELINE = [
     org: 'Georgia Institute of Technology',
     role: 'M.S. Computational Data Analytics',
     type: 'edu',
-    color: 'violet',
+    color: 'green',
     bullets: [],
     tags: ['Machine Learning for Trading', 'Analytics Modeling', 'Simulation', 'Military Simulation & Gaming'],
   },
@@ -29,7 +29,7 @@ const TIMELINE = [
     org: 'CACI',
     role: 'Supply Chain Intelligence Analyst, Contract (Part-Time)',
     type: 'work',
-    color: 'cyan',
+    color: 'green',
     bullets: [
       'Analyzed naval ship parts reliability data to identify component failure trends and support supply-chain planning and risk mitigation.',
       'Automated data cleaning and preprocessing with Python to enable reliable maintenance and supply-chain analytics.',
@@ -41,26 +41,19 @@ const TIMELINE = [
     org: 'UC Berkeley',
     role: 'B.S. Electrical Engineering & Computer Science',
     type: 'edu',
-    color: 'violet',
+    color: 'green',
     bullets: [],
     tags: ['Software Engineering', 'Artificial Intelligence', 'Machine Learning', 'Computer Security', 'Databases', 'UX/UI Design'],
   },
 ]
 
 const colorConfig = {
-  cyan: {
-    dot: 'bg-cyan-400 shadow-[0_0_8px_rgba(0,212,255,0.8)]',
-    border: 'border-cyan-500/20',
-    tag: 'border-cyan-500/25 text-cyan-400/80 bg-cyan-500/5',
-    badge: 'text-cyan-400 bg-cyan-500/10 border-cyan-500/20',
-    year: 'text-cyan-400',
-  },
-  violet: {
-    dot: 'bg-violet-400 shadow-[0_0_8px_rgba(139,92,246,0.8)]',
-    border: 'border-violet-500/20',
-    tag: 'border-violet-500/25 text-violet-400/80 bg-violet-500/5',
-    badge: 'text-violet-400 bg-violet-500/10 border-violet-500/20',
-    year: 'text-violet-400',
+  green: {
+    dot: 'bg-plum shadow-[0_0_8px_rgba(209,131,169,0.6)]',
+    border: 'border-plum/20',
+    tag: '',
+    badge: 'tag-pill',
+    year: 'text-plum',
   },
 }
 
@@ -92,7 +85,7 @@ export default function Experience() {
                         <span className={`font-mono text-[10px] tracking-widest uppercase ${c.year} block mb-1`}>
                           {item.year}
                         </span>
-                        <h3 className="font-space font-semibold text-white text-base leading-snug">
+                        <h3 className="font-space font-semibold text-base leading-snug" style={{ color: '#fdf0f7' }}>
                           {item.role}
                         </h3>
                         <p className="font-body text-white/45 text-sm mt-0.5">
@@ -117,8 +110,8 @@ export default function Experience() {
 
                     <div className={`flex flex-wrap gap-1.5 ${item.bullets.length === 0 ? '' : ''}`}>
                       {item.tags.map(tag => (
-                        <span key={tag} className={`tag-pill text-[9px] ${c.tag}`}>
-                          {tag}
+                        <span key={tag} className={`tag-pill text-[9px] flex items-center gap-1`}>
+                          <span className="text-[8px]">⚡</span>{tag}
                         </span>
                       ))}
                     </div>

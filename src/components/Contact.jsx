@@ -37,7 +37,7 @@ export default function Contact() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
 
       {/* Subtle bottom glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-48 bg-cyan-500/5 blur-3xl rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-48 bg-plum/5 blur-3xl rounded-full pointer-events-none" />
 
       <div className="max-w-3xl mx-auto text-center">
         <p className="section-heading justify-center">// Establish Contact</p>
@@ -55,9 +55,9 @@ export default function Contact() {
               href={link.href}
               target={link.href.startsWith('http') ? '_blank' : undefined}
               rel="noopener noreferrer"
-              className="group card-glass border border-white/[0.06] hover:border-cyan-500/25 px-5 py-4 rounded-xl transition-all duration-300 hover:bg-white/[0.045] hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(0,212,255,0.07)] flex items-center gap-3"
+              className="group card-glass border border-white/[0.06] hover:border-plum/25 px-5 py-4 rounded-xl transition-all duration-300 hover:bg-white/[0.045] hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(0,212,255,0.07)] flex items-center gap-3"
             >
-              <span className="text-white/30 group-hover:text-cyan-400 transition-colors">
+              <span className="text-white/30 group-hover:text-plum transition-colors">
                 {link.icon}
               </span>
               <div className="text-left">

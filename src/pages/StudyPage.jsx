@@ -3,47 +3,29 @@ import { useEffect, useState } from 'react'
 import { getStudy } from '../data/studies'
 
 const accentColors = {
-  cyan: {
-    badge:        'text-cyan-400 border-cyan-500/30 bg-cyan-500/5',
-    heading:      'text-cyan-400',
-    tag:          'border-cyan-500/20 text-cyan-400/70 bg-cyan-500/5',
-    glow:         'via-cyan-500/10',
-    metaVal:      'text-cyan-400',
-    scheduleHL:   'border-cyan-400/50 bg-cyan-500/10 text-cyan-300',
-    dot:          'bg-cyan-400',
-  },
-  violet: {
-    badge:        'text-violet-400 border-violet-500/30 bg-violet-500/5',
-    heading:      'text-violet-400',
-    tag:          'border-violet-500/20 text-violet-400/70 bg-violet-500/5',
-    glow:         'via-violet-500/10',
-    metaVal:      'text-violet-400',
-    scheduleHL:   'border-violet-400/50 bg-violet-500/10 text-violet-300',
-    dot:          'bg-violet-400',
-  },
   amber: {
-    badge:        'text-amber-400 border-amber-500/30 bg-amber-500/5',
-    heading:      'text-amber-400',
-    tag:          'border-amber-500/20 text-amber-400/70 bg-amber-500/5',
-    glow:         'via-amber-500/10',
-    metaVal:      'text-amber-400',
-    scheduleHL:   'border-amber-400/50 bg-amber-500/10 text-amber-300',
-    dot:          'bg-amber-400',
+    badge:        'text-plum border-plum/30 bg-plum/5',
+    heading:      'text-plum',
+    tag:          '',
+    glow:         'via-plum/10',
+    metaVal:      'text-plum',
+    scheduleHL:   'border-plum/50 bg-plum/10 text-queen',
+    dot:          'bg-plum',
   },
 }
 
 const calloutTypeStyles = {
-  methodology: { label: 'text-violet-400', border: 'border-l-violet-400/70', bg: 'bg-violet-500/5' },
-  finding:     { label: 'text-cyan-400',   border: 'border-l-cyan-400/70',   bg: 'bg-cyan-500/5'   },
-  honest:      { label: 'text-amber-400',  border: 'border-l-amber-400/70',  bg: 'bg-amber-500/5'  },
+  methodology: { label: 'text-plum', border: 'border-l-plum/70', bg: 'bg-plum/5' },
+  finding:     { label: 'text-plum',   border: 'border-l-plum/70',   bg: 'bg-plum/5'   },
+  honest:      { label: 'text-plum',  border: 'border-l-plum/70',  bg: 'bg-plum/5'  },
 }
 
 const sessionTypeStyle = {
   keynote:   { dot: 'bg-white/60',    pill: 'text-white/50 border-white/15 bg-white/5'        },
-  breakout:  { dot: 'bg-cyan-400',    pill: 'text-cyan-400/80 border-cyan-500/25 bg-cyan-500/5'   },
-  lightning: { dot: 'bg-violet-400',  pill: 'text-violet-400/80 border-violet-500/25 bg-violet-500/5' },
+  breakout:  { dot: 'bg-plum',    pill: ''   },
+  lightning: { dot: 'bg-plum',  pill: '' },
   expo:      { dot: 'bg-white/20',    pill: 'text-white/25 border-white/8 bg-transparent'     },
-  social:    { dot: 'bg-green-400',   pill: 'text-green-400/80 border-green-500/25 bg-green-500/5'  },
+  social:    { dot: 'bg-plum',   pill: ''  },
   logistics: { dot: 'bg-white/15',    pill: 'text-white/20 border-white/5 bg-transparent'     },
 }
 
@@ -94,7 +76,7 @@ function ScheduleVisual({ schedule, accentHL }) {
 
               {/* Dot + title */}
               <div className="flex items-start gap-2 min-w-0 flex-1">
-                <span className={`w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 ${isHL ? accentHL.includes('amber') ? 'bg-amber-400' : accentHL.includes('cyan') ? 'bg-cyan-400' : 'bg-violet-400' : st.dot}`} />
+                <span className={`w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 ${isHL ? accentHL.includes('amber') ? 'bg-plum' : accentHL.includes('green') ? 'bg-plum' : 'bg-plum' : st.dot}`} />
                 <span className={`font-body text-sm leading-snug ${isHL ? 'text-white/90 font-medium' : 'text-white/45'}`}>
                   {s.title}
                 </span>
@@ -114,19 +96,14 @@ function ScheduleVisual({ schedule, accentHL }) {
 }
 
 // ── Session meta card ──────────────────────────────────────────────────────────
-function SessionCard({ meta, c }) {
+function SessionCard({ meta }) {
   return (
-    <div className={`border ${c.tag.replace('text-', 'border-').split(' ')[0].replace('border-', 'border-')} border-opacity-30 bg-white/[0.02] rounded-xl p-4 mb-6`}
-      style={{ borderColor: undefined }}
-    >
-      <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
-        <span className={`font-mono text-[8px] tracking-widest uppercase px-2 py-0.5 rounded border ${c.badge}`}>
-          {meta.type}
-        </span>
-        <span className="font-mono text-[9px] text-white/25">{meta.day} · {meta.time}</span>
-      </div>
-      <p className="font-space font-semibold text-white/80 text-sm leading-snug mb-3">{meta.title}</p>
-      <p className="font-mono text-[9px] tracking-wide text-white/25 mb-3">{meta.room}</p>
+    <div className="rounded-xl p-4 mb-6 bg-white/[0.02]" style={{ border: '1px solid rgba(72,21,54,0.5)' }}>
+      {(meta.day || meta.time) && (
+        <p className="font-mono text-[9px] text-white/25 mb-2">{meta.day}{meta.time ? ` · ${meta.time}` : ''}</p>
+      )}
+      <p className="font-space font-semibold text-white/80 text-sm leading-snug mb-2">{meta.title}</p>
+      {meta.room && <p className="font-mono text-[9px] tracking-wide text-white/20 mb-2">{meta.room}</p>}
       <p className="font-body text-white/40 text-xs leading-relaxed mb-3 italic">{meta.abstract}</p>
       {meta.speakers?.length > 0 && (
         <div className="flex flex-wrap gap-x-4 gap-y-1 pt-3 border-t border-white/5">
@@ -158,7 +135,7 @@ export default function StudyPage() {
         <div className="text-center">
           <p className="text-[10px] tracking-widest uppercase mb-4 text-white/20">404 / NOT FOUND</p>
           <p className="mb-6">Study not found.</p>
-          <button onClick={() => navigate('/')} className="text-cyan-400 hover:text-cyan-300 transition-colors text-sm">
+          <button onClick={() => navigate('/')} className="text-plum hover:text-queen transition-colors text-sm">
             ← Return to Portfolio
           </button>
         </div>
@@ -166,13 +143,13 @@ export default function StudyPage() {
     )
   }
 
-  const c = accentColors[study.accent] || accentColors.cyan
+  const c = accentColors[study.accent] || accentColors.amber
 
   return (
-    <div className="relative min-h-screen bg-[#050A14] text-white">
+    <div className="relative min-h-screen bg-[#050A14] text-queen">
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className={`absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent ${c.glow} to-transparent`} />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(0,212,255,0.03),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(72,21,54,0.08),transparent)]" />
       </div>
 
       {/* Nav */}
@@ -180,7 +157,7 @@ export default function StudyPage() {
         <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
           <button
             onClick={() => navigate('/')}
-            className="flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase text-white/40 hover:text-cyan-400 transition-colors"
+            className="flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase text-white/40 hover:text-plum transition-colors"
           >
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
@@ -194,53 +171,30 @@ export default function StudyPage() {
       <main className={`relative z-10 max-w-5xl mx-auto px-6 pt-28 pb-24 transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
 
         {/* Header */}
-        <div className="mb-12">
-          <span className={`font-mono text-[9px] tracking-widest uppercase px-2 py-1 rounded border ${c.badge} inline-block mb-5`}>
-            {study.type}
-          </span>
-          <h1 className="font-space font-bold text-3xl md:text-4xl lg:text-5xl text-white leading-tight mb-4 max-w-3xl">
+        <div className="mb-10">
+          <h1 className="font-space font-bold text-3xl md:text-4xl lg:text-5xl leading-tight mb-3 max-w-3xl" style={{ color: '#fdf0f7' }}>
             {study.title}
           </h1>
-          <p className="font-body text-white/45 text-lg leading-relaxed max-w-2xl mb-8">
+          <p className="font-body text-white/45 text-base leading-relaxed max-w-2xl mb-5">
             {study.subtitle}
           </p>
 
-          {/* Meta */}
-          <div className="flex flex-wrap gap-x-8 gap-y-3 mb-8 border-t border-white/5 pt-6">
-            {[
-              { label: 'DATE',      value: study.date },
-              { label: 'CATEGORY', value: study.type },
-              { label: 'STATUS',   value: study.status === 'PUBLISHED' ? 'Published' : 'Coming Soon' },
-              study.readTime && { label: 'FORMAT', value: study.readTime },
-            ].filter(Boolean).map(({ label, value }) => (
-              <div key={label}>
-                <p className="font-mono text-[8px] tracking-widest uppercase text-white/25 mb-1">{label}</p>
-                <p className={`font-mono text-[11px] tracking-wide ${c.metaVal}`}>[{value}]</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="flex flex-wrap items-center gap-3 mb-8">
-            {study.tags.map(tag => (
-              <span key={tag} className={`font-mono text-[9px] tracking-wide px-2 py-0.5 rounded border ${c.tag}`}>{tag}</span>
-            ))}
-            {study.github && (
-              <a
-                href={study.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`ml-auto flex items-center gap-1.5 font-mono text-[10px] tracking-widest uppercase ${c.metaVal} opacity-60 hover:opacity-100 transition-opacity`}
-              >
-                <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-                </svg>
-                View on GitHub
-                <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
-            )}
-          </div>
+          {study.github && (
+            <a
+              href={study.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 font-mono text-[10px] tracking-widest uppercase text-plum/60 hover:text-plum transition-colors mb-8"
+            >
+              <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+              </svg>
+              View on GitHub
+              <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          )}
 
           <div className={`h-px bg-gradient-to-r from-transparent ${c.glow} to-transparent`} />
         </div>
@@ -268,12 +222,12 @@ export default function StudyPage() {
               <div className="space-y-14">
                 {study.sections.map((section) => (
                   <section key={section.id} id={section.id}>
-                    <h2 className={`font-mono text-[11px] tracking-widest uppercase ${c.heading} mb-5`}>
+                    <h2 className="section-heading mb-5 text-sm">
                       {section.heading}
                     </h2>
 
                     {/* Session meta card */}
-                    {section.sessionMeta && <SessionCard meta={section.sessionMeta} c={c} />}
+                    {section.sessionMeta && <SessionCard meta={section.sessionMeta} />}
 
                     {/* Body paragraphs */}
                     {section.body?.map((para, i) => (
@@ -350,7 +304,7 @@ export default function StudyPage() {
                 </div>
                 <div className="flex flex-wrap gap-1 mb-5">
                   {study.preview.stack.map(s => (
-                    <span key={s} className={`font-mono text-[8px] px-1.5 py-0.5 rounded border ${c.tag}`}>{s}</span>
+                    <span key={s} className="tag-pill">{s}</span>
                   ))}
                 </div>
                 {study.github && (

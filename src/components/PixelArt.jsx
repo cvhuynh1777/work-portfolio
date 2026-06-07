@@ -7,58 +7,30 @@ import sunGif from '../assets/sun.gif'
 const PIECES = [
   {
     src: curGif,
-    title: 'Cursor Character',
-    desc: 'Pixel cursor character I created as my original sprite.',
-    accent: 'cyan',
-    label: 'Original Sprite',
+    title: 'Christina',
+    desc: 'This is little Christina created by big Christina.',
   },
   {
     src: rocketGif,
     title: 'Rocket',
-    desc: 'Pixel rocket I created for the Space Mission Simulator.',
-    accent: 'cyan',
-    label: 'Orbital Sim',
+    desc: 'The thing that goes to space from Earth.',
   },
   {
     src: sunGif,
     title: 'Sun',
-    desc: 'Pixel sun I created for the Space Mission Simulator.',
-    accent: 'amber',
-    label: 'Orbital Sim',
+    desc: 'It is hot!',
   },
   {
     src: marsGif,
     title: 'Mars',
-    desc: 'Pixel Mars I created for the Space Mission Simulator.',
-    accent: 'amber',
-    label: 'Orbital Sim',
+    desc: 'Martians live here allegedly.',
   },
   {
     src: earthGif,
     title: 'Earth',
-    desc: 'Pixel Earth I created for the Space Mission Simulator.',
-    accent: 'violet',
-    label: 'Orbital Sim',
+    desc: 'Humans live here for now.',
   },
 ]
-
-const borderMap = {
-  cyan: 'border-cyan-500/20 hover:border-cyan-500/40',
-  violet: 'border-violet-500/20 hover:border-violet-500/40',
-  amber: 'border-amber-500/20 hover:border-amber-500/40',
-}
-
-const glowMap = {
-  cyan: 'group-hover:shadow-[0_0_25px_rgba(0,212,255,0.12)]',
-  violet: 'group-hover:shadow-[0_0_25px_rgba(139,92,246,0.12)]',
-  amber: 'group-hover:shadow-[0_0_25px_rgba(245,166,35,0.12)]',
-}
-
-const labelMap = {
-  cyan: 'text-cyan-400/60',
-  violet: 'text-violet-400/60',
-  amber: 'text-amber-400/60',
-}
 
 export default function PixelArt() {
   return (
@@ -76,7 +48,7 @@ export default function PixelArt() {
           {PIECES.map((piece) => (
             <div
               key={piece.title}
-              className={`group card-glass border ${borderMap[piece.accent]} ${glowMap[piece.accent]} rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.045] hover:-translate-y-0.5`}
+              className="group card-glass border border-plum/20 hover:border-plum/40 group-hover:shadow-[0_0_25px_rgba(209,131,169,0.12)] rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.045] hover:-translate-y-0.5"
             >
               {/* Canvas */}
               <div className="bg-[#050A14] rounded-xl border border-white/[0.04] p-4 mb-4 flex items-center justify-center min-h-[160px]">
@@ -87,9 +59,6 @@ export default function PixelArt() {
                 />
               </div>
 
-              <p className={`font-mono text-[9px] tracking-widest uppercase mb-1.5 ${labelMap[piece.accent]}`}>
-                {piece.label}
-              </p>
               <h3 className="font-space font-semibold text-white/80 text-sm mb-1">
                 {piece.title}
               </h3>

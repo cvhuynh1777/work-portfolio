@@ -2,29 +2,13 @@ import { useNavigate } from 'react-router-dom'
 import { STUDIES } from '../data/studies'
 
 const accentMap = {
-  cyan: {
-    border: 'border-cyan-500/20 hover:border-cyan-500/40',
-    tag: 'border-cyan-500/20 text-cyan-400',
-    pill: 'border-cyan-500/20 text-cyan-400/70 bg-cyan-500/5',
-    dot: 'bg-cyan-400',
-    arrow: 'text-cyan-400/60 group-hover:text-cyan-400',
-    glow: 'group-hover:shadow-[0_0_30px_rgba(0,212,255,0.06)]',
-  },
-  violet: {
-    border: 'border-violet-500/20 hover:border-violet-500/40',
-    tag: 'border-violet-500/20 text-violet-400',
-    pill: 'border-violet-500/20 text-violet-400/70 bg-violet-500/5',
-    dot: 'bg-violet-400',
-    arrow: 'text-violet-400/60 group-hover:text-violet-400',
-    glow: 'group-hover:shadow-[0_0_30px_rgba(139,92,246,0.06)]',
-  },
   amber: {
-    border: 'border-amber-500/20 hover:border-amber-500/40',
-    tag: 'border-amber-500/20 text-amber-400',
-    pill: 'border-amber-500/20 text-amber-400/70 bg-amber-500/5',
-    dot: 'bg-amber-400',
-    arrow: 'text-amber-400/60 group-hover:text-amber-400',
-    glow: 'group-hover:shadow-[0_0_30px_rgba(245,158,11,0.06)]',
+    border: 'border-plum/20 hover:border-plum/40',
+    tag: '',
+    pill: '',
+    dot: 'bg-plum',
+    arrow: 'text-plum/60 group-hover:text-plum',
+    glow: 'group-hover:shadow-[0_0_30px_rgba(209,131,169,0.08)]',
   },
 }
 
@@ -73,11 +57,11 @@ export default function Studies() {
                 </div>
 
                 {/* Type badge */}
-                <span className={`font-mono text-[9px] tracking-widest uppercase px-2 py-0.5 rounded border ${c.tag} bg-white/[0.02] inline-block mb-4`}>
+                <span className={`font-mono text-[9px] tracking-widest uppercase px-2 py-0.5 rounded bg-white/[0.02] inline-block mb-4`}>
                   {post.type}
                 </span>
 
-                <h3 className={`font-space font-semibold text-base leading-snug mb-2 transition-colors duration-200 ${isPublished ? 'text-white/80 group-hover:text-white' : 'text-white/50'}`}>
+                <h3 className={`font-space font-semibold text-base leading-snug mb-2 transition-colors duration-200 ${isPublished ? 'text-white/80 group-hover:text-queen' : 'text-white/50'}`}>
                   {post.title}
                 </h3>
                 <p className="font-body text-white/40 text-sm leading-relaxed mb-4">
@@ -86,7 +70,7 @@ export default function Studies() {
 
                 <div className="flex flex-wrap gap-1.5">
                   {post.tags.map(tag => (
-                    <span key={tag} className={`tag-pill text-[9px] border ${c.pill}`}>
+                    <span key={tag} className={`tag-pill text-[9px] border`}>
                       {tag}
                     </span>
                   ))}

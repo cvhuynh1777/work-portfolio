@@ -14,13 +14,11 @@ export default {
           700: '#0E1830',
           600: '#132040',
         },
-        cyan: {
-          glow: '#00D4FF',
-        },
-        gold: {
-          soft: '#E8B86D',
-          bright: '#F5A623',
-        },
+        plum:    '#D183A9',
+        queen:   '#F3C8DD',
+        wine:    '#4B1535',
+        dusk:    '#71557A',
+        jacarta: '#3A345B',
       },
       fontFamily: {
         space: ['"Space Grotesk"', 'sans-serif'],

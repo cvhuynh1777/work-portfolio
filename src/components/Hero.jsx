@@ -3,6 +3,7 @@ import curGif from '../assets/Cur.gif'
 
 const TYPEWRITER_STRINGS = [
   'Data Engineer',
+  'ML Engineer',
   'Technical Lead',
   "Master's Student",
 ]
@@ -50,44 +51,35 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center px-6 pt-16"
     >
       {/* Horizontal HUD lines */}
-      <div className="absolute left-0 right-0 top-1/3 h-px bg-gradient-to-r from-transparent via-cyan-500/15 to-transparent pointer-events-none" />
-      <div className="absolute left-0 right-0 bottom-1/4 h-px bg-gradient-to-r from-transparent via-cyan-500/10 to-transparent pointer-events-none" />
+      <div className="absolute left-0 right-0 top-1/3 h-px bg-gradient-to-r from-transparent via-plum/15 to-transparent pointer-events-none" />
+      <div className="absolute left-0 right-0 bottom-1/4 h-px bg-gradient-to-r from-transparent via-plum/10 to-transparent pointer-events-none" />
 
-      <div className="relative z-10 max-w-5xl w-full mx-auto grid md:grid-cols-[1fr_auto] gap-12 items-center">
+      <div className="relative z-10 max-w-5xl w-full mx-auto grid md:grid-cols-[1fr_1fr] gap-8 items-center">
 
         {/* LEFT — Text */}
         <div className={`transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
 
           {/* Status badge */}
-          <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 border border-cyan-500/20 rounded-full bg-cyan-500/5">
-            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-            <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-green-400">
+          <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 border rounded-full" style={{ background: 'rgba(58,52,91,0.4)', borderColor: 'rgba(58,52,91,0.8)' }}>
+            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#3A345B' }} />
+            <span className="font-mono text-[10px] tracking-[0.2em] uppercase" style={{ color: '#9b8fc0' }}>
               System Online · Open to Opportunities
             </span>
           </div>
 
-          <h1 className="font-space font-bold text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-3">
+          <h1 className="font-space font-bold text-5xl md:text-6xl lg:text-7xl leading-tight mb-3" style={{ color: '#fdf0f7' }}>
             Christina
             <br />
-            <span
-              style={{
-                background: 'linear-gradient(-45deg, #00D4FF, #8B5CF6, #00D4FF, #1E6EBF)',
-                backgroundSize: '300% 300%',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                animation: 'gradient-shift 8s ease infinite',
-              }}
-            >
+            <span style={{ color: '#fdf0f7' }}>
               Huynh
             </span>
           </h1>
 
           {/* Typewriter */}
-          <div className="font-mono text-base md:text-lg text-cyan-400/80 h-7 flex items-center">
+          <div className="font-mono text-base md:text-lg h-7 flex items-center">
             <span className="mr-1 text-white/30">{'>'}</span>
-            <span>{typed}</span>
-            <span className="ml-0.5 w-0.5 h-5 bg-cyan-400 animate-pulse inline-block" />
+            <span style={{ color: '#f0d8e8' }}>{typed}</span>
+            <span className="ml-0.5 w-0.5 h-5 animate-pulse inline-block" style={{ background: '#f0d8e8' }} />
           </div>
 
           {/* Clearance badge */}
@@ -98,25 +90,25 @@ export default function Hero() {
             </span>
           </div>
 
-          <p className="font-body text-white/55 text-base md:text-lg leading-relaxed max-w-lg mb-10">
-            M.S. Computational Data Analytics · Georgia Tech. B.S. Electrical Engineering
-            and Computer Science · UC Berkeley. Data engineer building data pipelines and
-            systems to support intelligence and operations. Interested in development,
-            AI/ML, and strategy. Passionate about the cosmos and the technologies that
-            bring us closer to it.
-          </p>
+          <div className="font-mono text-sm text-queen/60 leading-relaxed mb-10 tracking-wide space-y-2">
+            <p className="text-queen/80">Lead Data Engineer · CACI</p>
+            <p>M.S. Computational Data Analytics · Georgia Tech</p>
+            <p>B.S. Electrical Engineering and Computer Science · UC Berkeley</p>
+          </div>
 
           {/* CTAs */}
           <div className="flex flex-wrap gap-4">
             <button
               onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}
-              className="group relative px-6 py-3 bg-cyan-500 text-space-900 font-space font-semibold text-sm rounded-lg overflow-hidden transition-all duration-200 hover:bg-cyan-400 hover:shadow-[0_0_20px_rgba(0,212,255,0.4)]"
+              className="px-6 py-3 text-queen font-space font-semibold text-sm rounded-lg border transition-all duration-100 hover:brightness-110 hover:translate-y-0.5 active:translate-y-1"
+              style={{ background: '#71557A', borderColor: 'rgba(113,85,122,0.5)', boxShadow: '0 4px 0 0 #3d2e45' }}
             >
               View Mission Log
             </button>
             <button
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-6 py-3 border border-cyan-500/30 text-cyan-400 font-space font-medium text-sm rounded-lg transition-all duration-200 hover:border-cyan-400/60 hover:bg-cyan-500/5"
+              className="px-6 py-3 font-space font-semibold text-sm rounded-lg border transition-all duration-100 hover:brightness-105 hover:translate-y-0.5 active:translate-y-1"
+              style={{ background: '#F3C8DD', borderColor: 'rgba(243,200,221,0.5)', boxShadow: '0 4px 0 0 #c49ab0', color: '#481536' }}
             >
               Establish Contact
             </button>
@@ -128,7 +120,7 @@ export default function Hero() {
               href="https://github.com/cvhuynh1777"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono text-[10px] tracking-widest uppercase text-white/30 hover:text-cyan-400 transition-colors"
+              className="font-mono text-[10px] tracking-widest uppercase text-white/30 hover:text-plum transition-colors"
             >
               GitHub
             </a>
@@ -137,14 +129,14 @@ export default function Hero() {
               href="https://linkedin.com/in/chrisvh7"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono text-[10px] tracking-widest uppercase text-white/30 hover:text-cyan-400 transition-colors"
+              className="font-mono text-[10px] tracking-widest uppercase text-white/30 hover:text-plum transition-colors"
             >
               LinkedIn
             </a>
             <span className="w-4 h-px bg-white/10" />
             <a
               href="mailto:christina.v.huynh1@gmail.com"
-              className="font-mono text-[10px] tracking-widest uppercase text-white/30 hover:text-cyan-400 transition-colors"
+              className="font-mono text-[10px] tracking-widest uppercase text-white/30 hover:text-plum transition-colors"
             >
               Email
             </a>
@@ -153,16 +145,15 @@ export default function Hero() {
 
         {/* RIGHT — Floating character */}
         <div
-          className={`flex-shrink-0 flex items-center justify-center transition-all duration-700 delay-200 ${
+          className={`flex items-center justify-center transition-all duration-700 delay-200 ${
             mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
           <div className="relative animate-[float_6s_ease-in-out_infinite]">
-            <div className="absolute inset-0 blur-2xl bg-cyan-500/10 scale-150 pointer-events-none" />
             <img
               src={curGif}
               alt="Pixel Christina"
-              className="pixel-render relative z-10 w-40 h-auto md:w-52"
+              className="pixel-render h-auto w-full max-w-[380px] mx-auto"
             />
           </div>
         </div>

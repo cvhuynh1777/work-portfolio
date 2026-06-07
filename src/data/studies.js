@@ -6,7 +6,7 @@ export const STUDIES = [
   {
     slug: "launch-scrub-prediction",
     type: "Case Study",
-    accent: "cyan",
+    accent: "amber",
     status: "PUBLISHED",
     title: "Predicting Rocket Launch Scrubs from Weather",
     subtitle: "A probabilistic ML complement to NASA's Lightning Launch Commit Criteria",
