@@ -1,7 +1,6 @@
 import curGif from '../assets/Cur.gif'
 import marsGif from '../assets/mars.gif'
 import earthGif from '../assets/earth.gif'
-import rocketGif from '../assets/rocket.gif'
 import sunGif from '../assets/sun.gif'
 import lilbotGif from '../assets/lilbot.gif'
 
@@ -10,16 +9,14 @@ const PIECES = [
     src: curGif,
     title: 'Christina',
     desc: 'This is little Christina created by big Christina.',
+    bg: '#2a2a3a',
   },
   {
     src: lilbotGif,
-    title: 'Felix',
-    desc: 'Felix is a robot unknowingly doomed to the occasional game of Pong against his alter ego, Helix. Whoever wins gains control, though it\'s hard to tell from the outside who does. I use him to represent some form of AI in the loop within architecture diagrams.',
-  },
-  {
-    src: rocketGif,
-    title: 'Rocket',
-    desc: 'The thing that goes to space from Earth.',
+    title: 'Felix (...or Helix?)',
+    desc: 'Felix is a robot unknowingly doomed to the occasional game of Pong against his alter ego, Helix. Whoever wins gains control, though it\'s hard to tell from the outside who does. I also use him to represent some form of AI in the loop within architecture diagrams. That was his original purpose, but I got a little carried away with the art and lore.',
+    scale: true,
+    bg: '#2a2a3a',
   },
   {
     src: sunGif,
@@ -57,11 +54,15 @@ export default function PixelArt() {
               className="group card-glass border border-plum/20 hover:border-plum/40 group-hover:shadow-[0_0_25px_rgba(209,131,169,0.12)] rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.045] hover:-translate-y-0.5"
             >
               {/* Canvas */}
-              <div className="bg-[#050A14] rounded-xl border border-white/[0.04] p-4 mb-4 flex items-center justify-center min-h-[160px]">
+              <div
+                className="rounded-xl border border-white/[0.04] p-4 mb-4 flex items-center justify-center min-h-[160px]"
+                style={{ backgroundColor: piece.bg || '#050A14' }}
+              >
                 <img
                   src={piece.src}
                   alt={piece.title}
-                  className="pixel-render max-h-32 w-auto"
+                  className={`pixel-render w-auto ${piece.scale ? 'h-28' : 'max-h-32'}`}
+                  style={piece.scale ? { imageRendering: 'pixelated', minHeight: '7rem' } : {}}
                 />
               </div>
 
@@ -77,7 +78,7 @@ export default function PixelArt() {
 
         {/* Note */}
         <p className="font-mono text-[10px] text-white/20 tracking-wide text-center mt-10">
-          All sprites designed in Pixel Studio. More work coming soon.
+          All sprites designed in Pixel Studio, Aseprite, and Pixelover. More work coming soon.
         </p>
       </div>
     </section>
