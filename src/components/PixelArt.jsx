@@ -3,12 +3,18 @@ import marsGif from '../assets/mars.gif'
 import earthGif from '../assets/earth.gif'
 import rocketGif from '../assets/rocket.gif'
 import sunGif from '../assets/sun.gif'
+import lilbotGif from '../assets/lilbot.gif'
 
 const PIECES = [
   {
     src: curGif,
     title: 'Christina',
     desc: 'This is little Christina created by big Christina.',
+  },
+  {
+    src: lilbotGif,
+    title: 'Felix',
+    desc: 'Felix is a robot unknowingly doomed to the occasional game of Pong against his alter ego, Helix. Whoever wins gains control, though it\'s hard to tell from the outside who does. I use him to represent some form of AI in the loop within architecture diagrams.',
   },
   {
     src: rocketGif,
