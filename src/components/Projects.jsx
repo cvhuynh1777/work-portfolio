@@ -1,5 +1,15 @@
 const PROJECTS = [
   {
+    title: 'Tether',
+    type: 'AI/ML Engineering',
+    tags: ['Python', 'FastAPI', 'Streamlit', 'RAG', 'Azure OpenAI', 'Microsoft Foundry', 'Docker', 'Azure'],
+    href: 'https://github.com/cvhuynh1777/tether',
+    liveUrl: 'https://tether-chuynh.azurewebsites.net',
+    color: 'green',
+    icon: '◈',
+    desc: 'A research assistant that answers questions from a vetted collection of official UN space sustainability documents, linking each cited source to its authoritative original. I built the FastAPI and Streamlit app, citation provenance layer, and document catalog around Microsoft Foundry\'s managed retrieval, deployed on Azure App Service.',
+  },
+  {
     title: 'SpaceWatch',
     type: 'Data Engineering',
     tags: ['Databricks', 'PySpark', 'Delta Lake', 'Airflow', 'Python', 'SQL', 'RAG', 'claude-sonnet-4-6', 'Vector Search', 'FastAPI', 'Streamlit'],
