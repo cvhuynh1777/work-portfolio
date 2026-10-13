@@ -14,7 +14,7 @@ const PIECES = [
   {
     src: lilbotGif,
     title: 'Felix (...or Helix?)',
-    desc: 'Felix is a robot unknowingly doomed to the occasional game of Pong against his alter ego, Helix. Whoever wins gains control, though it\'s hard to tell from the outside who does. I also use him to represent some form of AI in the loop within architecture diagrams. That was his original purpose, but I got a little carried away with the art and lore.',
+    desc: 'Felix is a robot unknowingly doomed to the occasional game of Pong against his alter ego, Helix. Whoever wins gains control, though it\'s hard to tell from the outside who does.',
     scale: true,
     bg: '#2a2a3a',
   },
