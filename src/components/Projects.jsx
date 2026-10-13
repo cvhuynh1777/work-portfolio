@@ -1,7 +1,6 @@
 const PROJECTS = [
   {
     title: 'Tether',
-    type: 'AI/ML Engineering',
     tags: ['Python', 'FastAPI', 'Streamlit', 'RAG', 'Azure OpenAI', 'Microsoft Foundry', 'Docker', 'Azure'],
     href: 'https://github.com/cvhuynh1777/tether',
     liveUrl: 'https://tether-chuynh.azurewebsites.net',
@@ -11,7 +10,6 @@ const PROJECTS = [
   },
   {
     title: 'SpaceWatch',
-    type: 'Data Engineering',
     tags: ['Databricks', 'PySpark', 'Delta Lake', 'Airflow', 'Python', 'SQL', 'RAG', 'claude-sonnet-4-6', 'Vector Search', 'FastAPI', 'Streamlit'],
     href: 'https://github.com/cvhuynh1777/spacewatch/tree/main',
     liveUrl: 'https://spacewatch-neo.streamlit.app/',
@@ -52,9 +50,11 @@ export default function Projects() {
                 In Progress
               </span>
             )}
-            <span className={`tag-pill text-[9px] border ${c.badge}`}>
-              {proj.type}
-            </span>
+            {proj.type && (
+              <span className={`tag-pill text-[9px] border ${c.badge}`}>
+                {proj.type}
+              </span>
+            )}
           </div>
         </div>
 
