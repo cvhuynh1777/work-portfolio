@@ -182,22 +182,22 @@ export default function Projects() {
                   )}
 
                   {/* Secondary links */}
-                  <a href={proj.href} target="_blank" rel="noopener noreferrer"
-                    className={`font-mono text-[10px] tracking-widest uppercase ${c.link} transition-colors flex items-center gap-1`}>
-                    GitHub
-                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M7 7h10v10" />
-                    </svg>
-                  </a>
                   {proj.liveUrl && (
                     <a href={proj.liveUrl} target="_blank" rel="noopener noreferrer"
-                      className={`font-mono text-[10px] tracking-widest uppercase ${c.link} transition-colors flex items-center gap-1 opacity-60 hover:opacity-100`}>
+                      className={`font-mono text-[10px] tracking-widest uppercase text-queen hover:text-white transition-colors flex items-center gap-1`}>
                       Live Demo
                       <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M7 7h10v10" />
                       </svg>
                     </a>
                   )}
+                  <a href={proj.href} target="_blank" rel="noopener noreferrer"
+                    className={`font-mono text-[10px] tracking-widest uppercase ${c.link} transition-colors flex items-center gap-1 opacity-40 hover:opacity-80`}>
+                    GitHub
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M7 7h10v10" />
+                    </svg>
+                  </a>
                 </div>
               </div>
             )
