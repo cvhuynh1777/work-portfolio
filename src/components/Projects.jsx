@@ -1,18 +1,22 @@
+import { useNavigate } from 'react-router-dom'
+
 const PROJECTS = [
   {
     title: 'Tether',
-    tags: ['Python', 'FastAPI', 'Streamlit', 'RAG', 'Azure OpenAI', 'Microsoft Foundry', 'Docker', 'Azure'],
+    tags: ['Python', 'FastAPI', 'Streamlit', 'RAG', 'Azure AI Search', 'Azure OpenAI', 'Microsoft Foundry', 'Azure App Service'],
     href: 'https://github.com/cvhuynh1777/tether',
     liveUrl: 'https://tether-chuynh.azurewebsites.net',
+    storySlug: 'tether',
     color: 'green',
     icon: '◈',
-    desc: 'A research assistant that answers questions from a vetted collection of official UN space sustainability documents, linking each cited source to its authoritative original. I built the FastAPI and Streamlit app, citation provenance layer, and document catalog around Microsoft Foundry\'s managed retrieval, deployed on Azure App Service.',
+    desc: 'A research assistant that answers questions from a vetted collection of official UN space sustainability documents, citing the exact pages it used.',
   },
   {
     title: 'SpaceWatch',
     tags: ['Databricks', 'PySpark', 'Delta Lake', 'Airflow', 'Python', 'SQL', 'RAG', 'claude-sonnet-4-6', 'Vector Search', 'FastAPI', 'Streamlit'],
     href: 'https://github.com/cvhuynh1777/spacewatch/tree/main',
     liveUrl: 'https://spacewatch-neo.streamlit.app/',
+    storySlug: 'spacewatch',
     color: 'green',
     icon: '◈',
     desc: 'Tracks asteroids that pass close to Earth. Every morning, fresh data is pulled from NASA, cleaned and organized in Databricks, and surfaced in a Streamlit app where you can explore the week\'s closest passes, look up any asteroid, or ask questions in plain English. Answers come from claude-sonnet-4-6 using only real NASA records, with every answer showing its sources.',
@@ -31,11 +35,10 @@ const colorMap = {
 }
 
 export default function Projects() {
+  const navigate = useNavigate()
   const items = []
-  let lastGroup = null
 
   PROJECTS.forEach((proj) => {
-
     const c = colorMap[proj.color]
     items.push(
       <div
@@ -73,10 +76,10 @@ export default function Projects() {
           ))}
         </div>
 
-        <div className="flex items-center gap-4 mt-auto">
+        <div className="flex items-center gap-4 mt-auto flex-wrap">
           <a href={proj.href} target="_blank" rel="noopener noreferrer"
             className={`font-mono text-[10px] tracking-widest uppercase ${c.link} transition-colors flex items-center gap-1`}>
-            View on GitHub
+            GitHub
             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M7 7h10v10" />
             </svg>
@@ -84,11 +87,21 @@ export default function Projects() {
           {proj.liveUrl && (
             <a href={proj.liveUrl} target="_blank" rel="noopener noreferrer"
               className={`font-mono text-[10px] tracking-widest uppercase ${c.link} transition-colors flex items-center gap-1 opacity-60 hover:opacity-100`}>
-              View Live
+              Live Demo
               <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M7 7h10v10" />
               </svg>
             </a>
+          )}
+          {proj.storySlug && (
+            <button
+              onClick={() => navigate(`/study/${proj.storySlug}`)}
+              className={`font-mono text-[10px] tracking-widest uppercase ${c.link} transition-colors flex items-center gap-1 opacity-60 hover:opacity-100`}>
+              View the Story
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M7 7h10v10" />
+              </svg>
+            </button>
           )}
         </div>
       </div>
